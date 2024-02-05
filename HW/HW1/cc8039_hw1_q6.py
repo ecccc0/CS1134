@@ -25,3 +25,16 @@ class Vector:
         return '<'+ str(self.coords)[1:-1] + '>'
     def __repr__(self):
         return str(self)
+    def __sub__(self, other):
+        if len(self) != len(other):
+            raise ValueError("dimentions must agree")
+        result = Vector(self.coords)
+        for i in range(len(self)):
+            result.coords[i] -= other.coords[i]
+        return result
+    def __neg__(self):
+        result = Vector(len(self))
+        for i in range(len(self)):
+            result.coords[i] = -self.coords[i]
+        return result
+    
