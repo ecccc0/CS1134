@@ -13,10 +13,7 @@ class Vector:
     def __add__(self, other):
         if (len(self) != len(other)):
             raise ValueError("dimensions must agree")
-        result = Vector(len(self))
-        for j in range(len(self)):
-            result[j] = self[j] + other[j]
-        return result
+        return Vector([self[i] + other[i] for i in range(len(self))])
     def __eq__(self, other):
         return self.coords == other.coords
     def __ne__(self, other):
@@ -28,13 +25,34 @@ class Vector:
     def __sub__(self, other):
         if len(self) != len(other):
             raise ValueError("dimentions must agree")
-        result = Vector(self.coords)
-        for i in range(len(self)):
-            result.coords[i] -= other.coords[i]
-        return result
+        return Vector([self[i] - other[i] for i in range(len(self))])
     def __neg__(self):
-        result = Vector(len(self))
-        for i in range(len(self)):
-            result.coords[i] = -self.coords[i]
-        return result
-    
+        return Vector([-item for item in self])
+    def __mul__(self, x):
+        if isinstance(x, int):
+            return Vector([item*x for item in self])
+        elif len(x) == len(self):
+            return sum([self[i] * x[i] for i in range(len(self))])
+        else:
+            raise ValueError("dimesntions must agree")
+    def __rmul__(self, x):
+        return Vector([i * x for i in self])
+
+
+# v1 = Vector(5)
+# v1[1] = 10
+# v1[-1] = 10
+# print(v1)
+# v2 = Vector([2, 4, 6, 8, 10])
+# print(v2)
+
+# u1 = v1 + v2
+# print(u1)
+# u2 = -v2
+# print(u2)
+# u3 = 3 * v2
+# print(u3)
+# u4 = v2 * 3
+# print(u4)
+# u5 = v1 * v2
+# print(u5)
