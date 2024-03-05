@@ -8,6 +8,6 @@ def find_duplicates(lst):
             res.append(i + 1)
     return res
 
-# Worst Case: The runtime will always be 2n-1 since we always traverse through
+# Worst Case: The runtime will always be 2n-1 (O(n))since we always traverse through
 # the entire lst (length n) to create the cnt list, and we always traverse through 
 # the entire cnt list (length n-1) to find duplicates
