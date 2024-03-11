@@ -1,12 +1,16 @@
 def appearances(s, low, high):
-    if low == high:
-        return {s[low] : 1}
-    dict = appearances(s, low+1, high)
-    if s[low] not in dict:
-        dict[s[low]] = 1
+    if low > high:
+        return {}
     else:
-        dict[s[low]] += 1
-    return dict
+        cur = s[low]
+        dict = appearances(s, low + 1, high)
+        
+        if cur in dict:
+            dict[cur] += 1
+        else:
+            dict[cur] = 1
+        
+        return dict
 
 # s = 'Hello, world'
 # print(appearances(s, 0, len(s)-1))
