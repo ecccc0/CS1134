@@ -8,5 +8,5 @@ def appearances(s, low, high):
         dict[s[low]] += 1
     return dict
 
-s = 'Hello, world'
-print(appearances(s, 0, len(s)-1))
+# s = 'Hello, world'
+# print(appearances(s, 0, len(s)-1))

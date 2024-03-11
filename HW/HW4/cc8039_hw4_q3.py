@@ -23,4 +23,4 @@ def print_ruler(n):
         print("-" * n)
         print_ruler(n-1)
 
-print_ruler(4)
+# print_ruler(4)
