@@ -194,7 +194,7 @@ class BinarySearchTreeMap:
         cur = self.root
         rank = self.root.left_num + 1
         while i != rank:
-            if i > rank:
+            if i > rank and cur.right:
                 cur = cur.right
                 rank += cur.left_num + 1
             else:
