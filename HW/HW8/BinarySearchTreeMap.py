@@ -189,7 +189,7 @@ class BinarySearchTreeMap:
             yield node.item.key
 
     def get_ith_smallest(self, i): 
-        if i not in range(1, self.size+1):
+        if i not in range(1, self.n+1):
             raise IndexError()
         cur = self.root
         rank = self.root.left_num + 1
